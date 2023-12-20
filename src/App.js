@@ -1,6 +1,12 @@
 import './App.css';
 import { Route, Routes} from "react-router-dom";
 import { useState, useEffect } from 'react';
+import Home from "./screens/Home.jsx";
+import SignUp from "./screens/SignUp.jsx";
+import SignIn from "./screens/SignIn.jsx";
+import SignOut from "./screens/SignOut.jsx";
+import { verifyUser } from "./services/user.js";
+
 
 function App() {
 
@@ -13,7 +19,7 @@ function App() {
     }
     fetchUser()
   }, [])
-  
+
   return (
     <div className="App">
      <Routes> 
