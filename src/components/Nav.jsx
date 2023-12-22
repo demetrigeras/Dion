@@ -7,7 +7,7 @@ export default function Nav(props) {
     <nav>
       <div className="page-header">
         <div className="home">
-          <NavLink to="/">Projects </NavLink>
+          <NavLink to="/">Events </NavLink>
         </div>
 
         

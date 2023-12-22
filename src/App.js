@@ -5,6 +5,7 @@ import Home from "./screens/Home.jsx";
 import SignUp from "./screens/SignUp.jsx";
 import SignIn from "./screens/SignIn.jsx";
 import SignOut from "./screens/SignOut.jsx";
+import Nav from "./components/Nav.jsx";
 import { verifyUser } from "./services/user.js";
 
 
@@ -23,7 +24,7 @@ function App() {
   return (
     <div className="App">
      <Routes> 
-      <Route path="/" element={<Home user={user} />} />
+      <Route path="/" element={<Home user={user} />} />  
       <Route path="/sign-up" element={<SignUp setUser={setUser} />} />
       <Route path="/sign-in" element={<SignIn setUser={setUser} />} />
       <Route path="/sign-out" element={<SignOut setUser={setUser} />} />

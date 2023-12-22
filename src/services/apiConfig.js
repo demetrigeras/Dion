@@ -7,7 +7,7 @@ const getToken = () => {
 }
 
 const api = axios.create({
-    baseURL: process.env.NODE_ENV ===  'http://localhost:3000/dion/'
+    baseURL: 'http://localhost:3000/dion/'
   });
 
 
