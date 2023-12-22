@@ -57,25 +57,25 @@ const SignUp = (props) => {
       }));
       return; // Stop the form submission
     }
-
     try {
-      const user = await signUp(form);
-      setUser(user);
-      navigate('/');
+      const response = await signUp(form);
+      setUser(response.user);
+
+      // Redirect based on whether the user has a profile
+      if (response.hasProfile) {
+        navigate('/dionhp');
+      } else {
+        navigate('/create-profile');
+      }
     } catch (error) {
       console.error(error);
       setForm({
-        name: '',
-        email: '',
-        // UserName:'',
-        password: '',
-        passwordConfirmation: '',
+        ...form,
         isError: true,
-        errorMsg: 'Password did not match',
+        errorMsg: 'Error during signup: ' + error.message,
       });
     }
   };
-
   const { name, email, password, passwordConfirmation, isError, errorMsg } = form;
 
   return (

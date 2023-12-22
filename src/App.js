@@ -1,10 +1,13 @@
 import './App.css';
 import { Route, Routes} from "react-router-dom";
 import { useState, useEffect } from 'react';
-import Home from "./screens/Home.jsx";
+import Home from "./screens/Createprofile.jsx";
 import SignUp from "./screens/SignUp.jsx";
 import SignIn from "./screens/SignIn.jsx";
 import SignOut from "./screens/SignOut.jsx";
+import Dionhp from "./screens/dionhp.jsx";
+import Welcome from "./screens/welcome.jsx";
+import Createprofile from "./screens/Createprofile.jsx";
 import Nav from "./components/Nav.jsx";
 import { verifyUser } from "./services/user.js";
 
@@ -24,7 +27,9 @@ function App() {
   return (
     <div className="App">
      <Routes> 
-      <Route path="/" element={<Home user={user} />} />  
+     <Route path="/" element= {<Welcome user={user} />} />  
+      <Route path="/create-profile" element={<Createprofile user={user} />} /> 
+      <Route path="/dionhp" element= {<Dionhp user={user} />} /> 
       <Route path="/sign-up" element={<SignUp setUser={setUser} />} />
       <Route path="/sign-in" element={<SignIn setUser={setUser} />} />
       <Route path="/sign-out" element={<SignOut setUser={setUser} />} />
