@@ -10,15 +10,15 @@ export const getProfiles = async () => {
   }
 };
 
-export const getProfile = async () => {
+export const getProfile = async (id) => {
     try {
-      const response = await api.get("/profile");
+      const response = await api.get(`/profile/${id}`); // Correctly use the id in the request URL
       return response.data;
     } catch (error) {
-      console.error(`Failed to get pledges - error: ${error}`);
+      console.error(`Failed to get profile - error: ${error}`);
       throw error;
     }
-  };
+};
 
 export const createProfile = async (profile) => {
     try {

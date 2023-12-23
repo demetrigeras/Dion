@@ -26,7 +26,7 @@ const SignIn = (props) => {
     try {
       const user = await signIn(form)
       setUser(user)
-      navigate('/')
+      navigate('/dionhp')
     } catch (error) {
       console.error(error)
       setForm({

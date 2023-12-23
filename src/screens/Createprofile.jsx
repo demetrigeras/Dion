@@ -3,23 +3,46 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import Nav from '../components/Nav';
 import { createProfile } from '../services/Profile';
 
-const Home = ({ user }) => {
+const CreateProfile = ({ user }) => {
+
   const navigate = useNavigate();
+  
+
   const [ProfileData, setProfileData] = useState({
-    user: user?.id, 
+    user: user.id, 
     name: "",
     photo: "",
     bio: "",
     DOB: "",
   });
 
-  useEffect(() => {
-    if (user) {
-      setProfileData(prevData => ({ ...prevData, user: user.id }));
-    } else {
-      navigate('/create-profile');
-    }
-  }, [user, navigate]);
+
+  // useEffect(() => {
+  //   // Only set ProfileData if the user exists and has an ID
+  //   if (user && user.id) {
+  //     setProfileData(prevData => ({ ...prevData, user: user.id }));
+  //   }
+  // }, [user]);
+  // useEffect(()=> {
+   
+  //   if (user && user._id) {
+  //      setProfileData(prevData => ({ ...prevData, user: user._id }));
+  //   } else {
+  //     navigate('/create-profile');
+  //   }
+  // }, [user , navigate]);
+
+  
+  // useEffect(() => {
+  //   if (user && user.id) {
+  //     if (user.hasProfile) {
+  //       navigate('/dionhp');
+  //     } else {
+  //       navigate('/create-profile');
+  //     }
+  //   }
+  // }, [user, navigate]);
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -31,18 +54,20 @@ const Home = ({ user }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log('Submitting profile:', ProfileData);
+  
     try {
       const userProfile = await createProfile(ProfileData);
       console.log('Profile created:', userProfile);
-      navigate('/dionhp'); // Redirect to the main page after creating profile
+      navigate('/dionhp');
     } catch (error) {
       console.error('Error creating profile:', error);
     }
   };
+  
 
   return (
     <div className="Home">
-      test
       {user ? (
         <>
           <Nav user={user} />
@@ -123,4 +148,4 @@ const Home = ({ user }) => {
   );
 };
 
-export default Home;
+export default CreateProfile;
